@@ -6,4 +6,9 @@ def home(request):
 
 
 def reverse(request):
-    return render(request, 'reverse.html')
+    original_message = request.GET['message']
+    reversed_message = original_message[::-1]
+    return render(request,
+                  'reverse.html',
+                  {'original_message': original_message, 'reversed_message': reversed_message}
+                  )
